@@ -1,0 +1,32 @@
+<h1>Add Task</h1>
+
+<% flash.each do |type, msg| %>
+    <div>
+    <b> <%= msg %> </b>
+    </div>
+  <% end %>
+
+<%= form_with url: add_new_task_path do |form| %>
+    
+        <div class="field">
+            <%= form.label :task_title %>
+            <%= form.text_field :task_title %>
+              
+        </div>
+
+        <div class="field">
+            <%= form.label :description %>
+            <%= form.text_field :description %>
+        </div>
+
+
+        <div class="actions">
+            <%= form.submit 'Add_task' %>
+        </div>
+
+<% end %>
+
+<%= link_to 'back', view_tasks_path %>
+      
+
+

@@ -1,0 +1,23 @@
+
+<h1> Login </h1>
+<%= form_with url: authenticate_path do |form| %>
+    <div class="field">
+      <%= form.label :email %>
+      <%= form.text_field :email %>
+    </div>
+  
+    <div class="field">
+      <%= form.label :password %>
+      <%= form.text_field :password_digest %>
+    </div>
+  
+    <div class="actions">
+      <%= form.submit "Login"%>
+    </div>
+  
+  <% end %>
+  <br>
+<p><b>forgot password? change here</b>
+<%= link_to 'forgot password', forgot_password_path %> </p>
+<p><b>"don't have account?"</b> 
+<%= link_to 'Create account', regester_path  %></p>

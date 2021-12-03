@@ -1,0 +1,29 @@
+<h1>Create Account</h1>
+
+<%= form_with url: regester_new_path do |form| %>
+    
+        <div class="field">
+            <%= form.label :name %>
+            <%= form.text_field :name %>
+            
+        </div>
+
+        <div class="field">
+            <%= form.label :email %>
+            <%= form.text_field :email%>
+        </div>
+
+        <div class="field">
+            <%= form.label :password %>
+            <%= form.text_field :password_digest %>
+         </div>
+
+        <div class="actions">
+            <%= form.submit 'Create' %>
+        </div>
+
+<% end %>
+
+<br>
+<p><b>already have account? login here</b>
+<%= link_to 'Login', login_path %> </p>

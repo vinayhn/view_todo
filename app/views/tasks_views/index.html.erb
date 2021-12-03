@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Tasks Views</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @tasks_views.each do |tasks_view| %>
+      <tr>
+        <td><%= link_to 'Show', tasks_view %></td>
+        <td><%= link_to 'Edit', edit_tasks_view_path(tasks_view) %></td>
+        <td><%= link_to 'Destroy', tasks_view, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Tasks View', new_tasks_view_path %>
