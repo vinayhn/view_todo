@@ -18,15 +18,15 @@ class TasksViewsController < ApplicationController
     if params[:task_title].present?
       response =  HTTParty.post(url, headers: {wwwauthenticate: session[:token]},body: { task: {task_title: params[:task_title], description: params[:description] } })
       
-      puts JSON.parse(response.body) 
+      #puts JSON.parse(response.body) 
       #JSON.parse(response.body)
       #render json: {data:  JSON.parse(response.body) }, status: 200  && return
       #byebug
-      redirect_to view_tasks_path
+      #redirect_to view_tasks_path
     else
-      flash[:alert] = "Task title cannot be empty."
-      redirect_to add_task_path #notice: "Title field cannot be empty"
-      return 
+      #flash[:alert] = "Task title cannot be empty."
+      #redirect_to add_task_path #notice: "Title field cannot be empty"
+      #return 
     end
       
       
