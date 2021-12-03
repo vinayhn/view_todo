@@ -1,9 +1,5 @@
 Rails.application.routes.draw do
-  #resources :tasks_views
-  #resources :users_views
- # resources :usersview
   root 'users_views#regester'
-  #post '/create_user', to: 'users_views#create_user'
 
   get '/regester', to: 'users_views#regester'
   post '/regester_new', to: 'users_views#create'
