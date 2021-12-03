@@ -2,7 +2,7 @@
 <br>
 <%= button_to 'Logout', logout_path %>
 <br><br>
-<body>
+<body onload = "print_tasks(<%= @tasks %>)" >
 <table id = "task_table">
   <thead>
     <tr>
@@ -17,26 +17,6 @@
   </thead>
 
   <tbody id = "task_table_body" >
-   <% @tasks.each do |task| %> 
-    <tr id = <%= task['id'] %>  >
-      <td><%= task['id']%></td>
-      <td><%= simple_format(word_wrap(task['task_title'], line_width: 20)) %></td>
-      <td><b>-</b></td>
-      <td><%= simple_format(word_wrap(task['description'], line_width: 35))  %></td>
-      <td><b>-</b></td>
-      <td><%= task['status'] %></td>
-      <td><b>-</b</td>
-
-      <td><%= link_to 'edit',edit_one_task_path(id: task["id"].to_i)%></td>
-      <td><b>|</b></td>  
-      <td>   <button onclick = "del_task(<%= task['id'] %>)" > Delete </button>  </td>
-     
-      <!--<td><%= link_to 'delete', id_path(id: task["id"].to_i)%></td> --->
-      
-        
-    </tr>
-   <% end %>  
-
 
   </tbody>
 </table>
@@ -49,11 +29,13 @@
   </div>
 <% end %>
 
-
- <%= link_to 'Add Task', add_task_path %>  ||  ----   ||  <%= link_to 'back', view_tasks_path %> 
-
  
+ <!-- <%= link_to 'Add Task', add_task_path %> -->
 
 
 
+ <p id = "add_task_form"> </p>
+ <button id = "add_button" style="cursor: pointer;" onclick = "add_task_form( <%= @tasks %>)"> <b>Add task</b> </button>
+ <p id = "bck_lnk" style = "visibility: hidden; "><%= link_to 'back', view_tasks_path %></p>
+ 
 
